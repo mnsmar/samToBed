@@ -1,2 +1,4 @@
-./samToBed.pl ~/workspace/projects/sequencing/experiments/BmSiwi/HITS-CLIP/sample_BmSiwi_1_PapiKD/aligned/reads.adtrim.align.mappedonly.unique.sam.gz | head
-./experiment-samToBed.pl /home/mns/workspace/projects/sequencing/experiments/BmSiwi/params.xml reads.adtrim.align.mappedonly.unique.sam.gz
+This is a SAM to BED converter
+
+The scripts can be used to convert a SAM formatted file into a BED formatted file.
+The scripts are based on the main library.
