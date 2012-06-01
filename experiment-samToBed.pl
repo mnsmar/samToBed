@@ -45,14 +45,8 @@ foreach my $sub_experiment_name (@sub_experiment_names) {
 			die "What the f...! Input file and output file are the same. $ofile eq $ifile\n";
 		}
 		
-		if ($ifile =~ /\.gz$/) {
-			system "zcat $ifile | samToBed.pl | sort -k1,1 -k2,2n > $ofile";
-			warn "Running \"zcat $ifile | samToBed.pl | sort -k1,1 -k2,2n > $ofile\"\n";
-		}
-		else {
-			system "cat $ifile | samToBed.pl | sort -k1,1 -k2,2n > $ofile";
-			warn "Running \"cat $ifile | samToBed.pl | sort -k1,1 -k2,2n > $ofile\"\n";	
-		}
+		system "samToBed.pl $ifile | sort -k1,1 -k2,2n > $ofile";
+		warn "Running \"samToBed.pl $ifile | sort -k1,1 -k2,2n > $ofile\"\n";
 	}
 }
 
@@ -65,15 +59,8 @@ if (-e $ifile_pool) {
 		die "What the f...! Input file and output file are the same. $ofile_pool eq $ifile_pool\n";
 	}
 	
-	if ($ifile_pool =~ /\.gz$/) {
-		system "zcat $ifile_pool | samToBed.pl | sort -k1,1 -k2,2n > $ofile_pool";
-		warn "Running \"zcat $ifile_pool | samToBed.pl | sort -k1,1 -k2,2n > $ofile_pool\"\n";
-	}
-	else {
-		system "cat $ifile_pool | samToBed.pl | sort -k1,1 -k2,2n > $ofile_pool";
-		warn "Running \"cat $ifile_pool | samToBed.pl | sort -k1,1 -k2,2n > $ofile_pool\"\n";	
-	}
-
+	system "samToBed.pl $ifile_pool | sort -k1,1 -k2,2n > $ofile_pool";
+	warn "Running \"samToBed.pl $ifile_pool | sort -k1,1 -k2,2n > $ofile_pool\"\n";
 }
 
 warn "time elapsed = ".(time-$time)."sec\n";
