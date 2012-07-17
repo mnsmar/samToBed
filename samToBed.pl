@@ -3,7 +3,7 @@ use warnings;
 use strict;
 use Getopt::Long;
 
-use lib '/home/mns/lib/perl/class/v6.0';
+use lib '/home/mns/lib/perl/class/v7.0';
 use MyBio::Data::File::SAM;
 
 # Read command options
@@ -20,7 +20,7 @@ my $sam_file = shift or usage();
 my $sam_parser = MyBio::Data::File::SAM->new({FILE => $sam_file});
 while (my $record = $sam_parser->next_record) {
 	if ($record->is_mapped) {
-		print join("\t", ($record->get_rname, $record->get_start, $record->get_stop + 1, $record->get_qname, $record->get_mapq, $record->get_strand_symbol))."\n";
+		print join("\t", ($record->rname, $record->start, $record->stop + 1, $record->qname, $record->mapq, $record->strand_symbol))."\n";
 	}
 }
 
